@@ -1,0 +1,18 @@
+In this SQL query, A is an alias for the result of the subquery, which combines data from two different parts of the icc_worldcup table using a UNION ALL.
+
+Here’s a breakdown of how A works in this context:
+
+The subquery inside the parentheses:
+
+Selects each team (Team_1 and Team_2) along with a win_flag indicator.
+For each row in icc_worldcup:
+If Team_1 is the winner, win_flag is set to 1; otherwise, it’s 0.
+The same logic is applied to Team_2.
+The UNION ALL operation combines the results, creating a unified list of teams with corresponding win flags.
+The alias A allows you to treat the entire result of the subquery as if it were a table, making it easier to group, count, and summarize data in the main query.
+
+The main query then aggregates data from A:
+
+Counts the total matches each team played (num_matches).
+Sums up the wins (no_of_matches_won) and losses for each team, based on win_flag.
+So, in summary, A represents the unified set of match records for both Team_1 and Team_2, where each row now has a team_name and win_flag
